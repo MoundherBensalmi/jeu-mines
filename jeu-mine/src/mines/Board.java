@@ -40,6 +40,7 @@ public class Board extends JPanel {
     private static final int cols = 16;
     private int allCells;
     private final JLabel statusbar;
+    private static  SecureRandom random = new SecureRandom();
 
 
     public Board(JLabel statusbar) {
@@ -66,7 +67,7 @@ public class Board extends JPanel {
 
 
     public void newGame() {
-        SecureRandom random = new SecureRandom();
+        
         int position;
 
         inGame = true;
