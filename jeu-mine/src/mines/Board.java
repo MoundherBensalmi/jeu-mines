@@ -35,11 +35,11 @@ public class Board extends JPanel {
     private boolean inGame;
     private int minesLeft;
     private transient Image[] img;
-    private int mines = 40;
-    private int rows = 16;
-    private int cols = 16;
+    private static final int mines = 40;
+    private static final int rows = 16;
+    private static final int cols = 16;
     private int allCells;
-    private JLabel statusbar;
+    private final JLabel statusbar;
 
 
     public Board(JLabel statusbar) {
@@ -49,14 +49,18 @@ public class Board extends JPanel {
         img = new Image[NUM_IMAGES];
 
         for (int i = 0; i < NUM_IMAGES; i++) {
-			img[i] =
-                    (new ImageIcon(getClass().getClassLoader().getResource((i)
-            			    + ".gif"))).getImage();
+			  img[i] = (new ImageIcon(Thread.currentThread().getContextClassLoader().getResource((i) + ".gif"))).getImage();
+
         }
 
         setDoubleBuffered(true);
 
         addMouseListener(new MinesAdapter());
+     intiBoard();
+
+    }
+
+    public void intiBoard(){
         newGame();
     }
 
