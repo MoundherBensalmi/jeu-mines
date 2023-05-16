@@ -57,16 +57,13 @@ public class Board extends JPanel {
         setDoubleBuffered(true);
 
         addMouseListener(new MinesAdapter());
-     intiBoard();
+     newGame();
 
     }
 
-    public void intiBoard(){
-        newGame();
-    }
+    
 
-
-    public void newGame() {
+    public final void newGame() {
         
         int position;
 
